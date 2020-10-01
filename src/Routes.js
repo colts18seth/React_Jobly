@@ -1,16 +1,36 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
+import CompaniesList from './CompaniesList';
+import Company from './Company';
+import JobsList from './JobsList';
+import SignIn from './SignIn';
+import Profile from './Profile';
 
 function Routes() {
     return (
         <div className="Routes">
-            <Route path='/'>
-                <Home />
-            </Route>
-
-            {/* //! finish adding routes */}
-
+            <Switch>
+                <Route exact path='/login'>
+                    <SignIn />
+                </Route>
+                <Route exact path='/profile'>
+                    <Profile />
+                </Route>
+                <Route exact path='/jobs'>
+                    <JobsList />
+                </Route>
+                <Route exact path='/companies'>
+                    <CompaniesList />
+                </Route>
+                <Route exact path='/companies/:company'>
+                    <Company />
+                </Route>
+                <Route exact path='/'>
+                    <Home />
+                </Route>
+                <Redirect to='/' />
+            </Switch>
         </div>
     );
 }
