@@ -1,13 +1,26 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './Nav.css';
 
 function Nav() {
     return (
-        <div className="Nav">
-            <h1>This is the NavBar</h1>
-
-            {/* //! link to routes */}
-
-        </div>
+        <nav className="Nav">
+            <NavLink exact to='/'>
+                Jobly
+            </NavLink>
+            <NavLink to='/companies'>
+                Companies
+            </NavLink>
+            <NavLink to='/jobs'>
+                Jobs
+            </NavLink>
+            <NavLink to='/profile'>
+                Profile
+            </NavLink>
+            <NavLink to='/login'>
+                Login
+            </NavLink>
+        </nav>
     );
 }
 

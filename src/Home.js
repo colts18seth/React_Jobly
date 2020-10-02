@@ -1,12 +1,11 @@
 import React from 'react';
+import './Home.css'
 
 function Home() {
     return (
         <div className="Home">
-            <h1>This is Home</h1>
-
-            {/* //!  change to a welcome message */}
-
+            <h1>Jobly</h1>
+            <p>All the jobs in one, convenient place.</p>
         </div>
     );
 }

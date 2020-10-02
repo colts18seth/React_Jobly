@@ -1,0 +1,17 @@
+.Nav {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+}

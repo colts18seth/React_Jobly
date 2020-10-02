@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 class Api {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
         paramsOrData._token = ( // for now, hardcode token for "testing"
@@ -28,6 +30,12 @@ class Api {
     static async getCompany(handle) {
         let res = await this.request(`companies/${handle}`);
         return res.company;
+    }
+
+    static async getCompanies() {
+        let res = await this.request(`companies`);
+        return res;
+        // ! test this route 
     }
 }
 
