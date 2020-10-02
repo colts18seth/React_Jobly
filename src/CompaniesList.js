@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import Api from './Api';
+import CompanyCard from './CompanyCard';
 
 function CompaniesList() {
-    // Api.
+    const [companies, setCompanies] = useState();
+
+    useEffect(() => {
+        const getCompanies = async () => {
+            const allCompanies = await Api.getCompanies();
+            setCompanies(allCompanies.companies)
+        }
+        getCompanies()
+    }, [])
 
     return (
         <div className="CompaniesList">
-            <h1>CompaniesList Page</h1>
+            {companies === undefined
+                ? <p>Loading...</p>
+                : companies.map(company => (
+                    <div key={uuid()}>
+                        <CompanyCard company={company} />
+                    </div>
+                ))}
         </div>
     );
 }
