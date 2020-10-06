@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import Api from './Api';
 import CompanyCard from './CompanyCard';
+import './CompaniesList.css';
 
 function CompaniesList() {
     const [companies, setCompanies] = useState();

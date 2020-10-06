@@ -8,18 +8,20 @@ function Nav() {
             <NavLink exact to='/'>
                 Jobly
             </NavLink>
-            <NavLink to='/companies'>
-                Companies
+            <div className='links'>
+                <NavLink to='/companies'>
+                    Companies
             </NavLink>
-            <NavLink to='/jobs'>
-                Jobs
+                <NavLink to='/jobs'>
+                    Jobs
             </NavLink>
-            <NavLink to='/profile'>
-                Profile
+                <NavLink to='/profile'>
+                    Profile
             </NavLink>
-            <NavLink to='/login'>
-                Login
+                <NavLink to='/login'>
+                    Login
             </NavLink>
+            </div>
         </nav>
     );
 }
