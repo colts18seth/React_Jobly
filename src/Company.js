@@ -15,7 +15,7 @@ function Company() {
 
     return (
         <div className="Company">
-            <h1>companyState</h1>
+            
         </div>
     );
 }

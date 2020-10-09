@@ -34,7 +34,7 @@ class Api {
 
     static async getCompanies() {
         let res = await this.request(`companies`);
-        return res;
+        return res.companies;
     }
 }
 

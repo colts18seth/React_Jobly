@@ -10,7 +10,7 @@ function CompaniesList() {
     useEffect(() => {
         const getCompanies = async () => {
             const allCompanies = await Api.getCompanies();
-            setCompanies(allCompanies.companies)
+            setCompanies(allCompanies)
         }
         getCompanies()
     }, [])
