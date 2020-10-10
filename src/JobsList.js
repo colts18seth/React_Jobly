@@ -1,9 +1,53 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { v4 as uuid} from 'uuid';
+import Api from './Api';
+import JobCard from './JobCard';
+import SearchBar from './SearchBar';
+import './JobsList.css';
 
 function JobsList() {
+    const [jobs, setJobs] = useState();
+    const [searchTerm, setSearchTerm] = useState("");
+    
+    useEffect(() => {
+        getAllJobs();
+    }, []);
+
+    const handleChange = (e) => {
+        const {value} = e.target;
+        setSearchTerm(value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();        
+        searchJobs();
+    };
+    
+    const getAllJobs = async () => {
+        const allJobs = await Api.getJobs();
+        setJobs(allJobs);
+    };
+
+    const searchJobs = async () => {
+        const search = await Api.searchJobs(searchTerm);
+        setSearchTerm("");
+        setJobs(search);
+    };
+
+    const toggleSearch = async () => {
+        getAllJobs();
+    };
+
     return (
         <div className="JobsList">
-            <h1>JobsList Page</h1>
+            <SearchBar toggleSearch={toggleSearch} page='jobs' handleChange={handleChange} handleSubmit={handleSubmit} searchTerm={searchTerm} />
+            {jobs === undefined
+                ? <p>Loading...</p>
+                : jobs.length === 0 ? <p>Sorry, no results were found!</p> : jobs.map(job => (
+                    <div key={uuid()}>
+                        <JobCard job={job} />
+                    </div>
+                ))}
         </div>
     );
 }

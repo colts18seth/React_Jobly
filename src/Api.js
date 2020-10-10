@@ -36,6 +36,26 @@ class Api {
         let res = await this.request(`companies`);
         return res.companies;
     }
+    
+    static async searchCompanies(searchTerm) {
+        let res = await this.request('companies', {search: searchTerm})
+        return res.companies;
+    }
+    
+    static async getJob(title) {
+        let res = await this.request(`jobs/${title}`);
+        return res.job;
+    }
+    
+    static async getJobs() {
+        let res = await this.request(`jobs`);
+        return res.jobs;
+    }
+
+    static async searchJobs(searchTerm) {
+        let res = await this.request('jobs', {search: searchTerm})
+        return res.jobs;
+    }
 }
 
 export default Api;

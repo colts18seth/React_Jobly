@@ -5,14 +5,13 @@ import image from './imgs/download.png';
 
 function CompanyCard({ company }) {
     return (
-        <Link to={`/companies/${company.handle}`}>
-            <div className="CompanyCard">
-                <img src={image} alt={company.handle + " logo"} />
-                <h2>{company.name}</h2>
-
-                <p>{company.description}</p>
-            </div>
-        </Link>
+        <div className="CompanyCard">
+            <Link to={`/companies/${company.handle}`}>            
+            <img src={image} alt={company.handle + " logo"} />
+            <h2>{company.name}</h2>
+            <p>{company.description}</p>            
+            </Link>
+        </div>
     );
 }
 
