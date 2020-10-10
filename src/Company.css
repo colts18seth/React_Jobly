@@ -1,0 +1,25 @@
+.Company {
+    text-align: left;
+    width: 60%;
+    margin: 2rem auto;  
+}
+
+.Company h3 {
+    margin-left: 1rem;
+}
+
+.Company .job {
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+.Company button {
+    display: block;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: .2rem;
+    background-color: rgb(230, 230, 230);
+}
