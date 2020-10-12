@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Nav.css';
 
-function Nav({isLoggedIn, setIsLoggedIn}) {
+function Nav({isLoggedIn, logout}) {
     return (
         <nav className="Nav">
             <NavLink exact to='/'>
@@ -23,10 +23,7 @@ function Nav({isLoggedIn, setIsLoggedIn}) {
                         <NavLink to='/profile'>
                             Profile
                         </NavLink>
-                        <NavLink to='/login' onClick={() => {
-                                setIsLoggedIn(false)
-                                localStorage.clear()
-                            }}>
+                        <NavLink to='/login' onClick={() => logout()}>
                             Logout
                         </NavLink>
                     </>

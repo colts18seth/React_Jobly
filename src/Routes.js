@@ -7,12 +7,12 @@ import JobsList from './JobsList';
 import SignIn from './SignIn';
 import Profile from './Profile';
 
-function Routes({setIsLoggedIn}) {
+function Routes({login}) {
     return (
         <div className="Routes">
             <Switch>
                 <Route exact path='/login'>
-                    <SignIn setIsLoggedIn={setIsLoggedIn} />
+                    <SignIn login={login} />
                 </Route>
                 <Route exact path='/profile'>
                     <Profile />

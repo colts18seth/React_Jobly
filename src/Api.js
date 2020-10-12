@@ -60,6 +60,11 @@ class Api {
         let res = await this.request('login', data, "post");
         return res;
     }
+    
+    static async signUpUser(data) {
+        let res = await this.request('users', data, "post");
+        return res;
+    }
 }
 
 export default Api;

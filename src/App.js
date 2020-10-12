@@ -7,11 +7,20 @@ import './App.css';
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(Boolean(localStorage.token));
 
+    const logout = () => {
+        localStorage.clear();
+        setIsLoggedIn(false);
+    }
+
+    const login =() => {
+        setIsLoggedIn(true);
+    }
+
     return (
         <div className="App">
             <BrowserRouter>
-                <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-                <Routes setIsLoggedIn={setIsLoggedIn} />
+                <Nav isLoggedIn={isLoggedIn} logout={logout} />
+                <Routes login={login} />
             </BrowserRouter>
         </div>
     );

@@ -3,11 +3,15 @@ import { useHistory } from "react-router-dom";
 import Api from './Api';
 import './SignIn.css';
 
-function SignIn({setIsLoggedIn}) {
+function SignIn({login}) {
     let history = useHistory();
     const INITIAL_STATE = {
         username: "testuser",
-        password: "secret"
+        password: "secret",
+        first_name: "test",
+        last_name: "user",
+        email: "testuser",
+        photo_url: "http://testuser.com"
     }
 
     const [data, setData] = useState(INITIAL_STATE);
@@ -26,9 +30,14 @@ function SignIn({setIsLoggedIn}) {
         e.preventDefault();
         try {
             const post = {data: data}
-            const res = await Api.loginUser(post.data);
-            localStorage.setItem("token", res.token);
-            setIsLoggedIn(true)
+            if (activeForm === "login") {
+                const res = await Api.loginUser(post.data);
+                localStorage.setItem("token", res.token);
+            } else {
+                const res = await Api.signUpUser(post.data);
+                localStorage.setItem("token", res.token);
+            }
+            login();
             history.push("/companies");
             setError(false);
         }
@@ -78,20 +87,20 @@ function SignIn({setIsLoggedIn}) {
                 {activeForm === 'signUp' &&
                     <>
                         <div>
-                            <label htmlFor="firstName">First Name: </label>
-                            <input onChange={handleChange} name="firstName" id="firstName" type="text" value={data.firstName}></input>
+                            <label htmlFor="first_name">First Name: </label>
+                            <input onChange={handleChange} name="first_name" id="first_name" type="text" value={data.first_name}></input>
                         </div>
                         <div>
-                            <label htmlFor="lastName">Last Name: </label>
-                            <input onChange={handleChange} name="lastName" id="lastName" type="text" value={data.lastName}></input>
+                            <label htmlFor="last_name">Last Name: </label>
+                            <input onChange={handleChange} name="last_name" id="last_name" type="text" value={data.last_name}></input>
                         </div>
                         <div>
                             <label htmlFor="email">Email: </label>
                             <input onChange={handleChange} name="email" id="email" type="text" value={data.email}></input>
                         </div>
                         <div>
-                            <label htmlFor="photoURL">Photo URL: </label>
-                            <input onChange={handleChange} name="photoURL" id="photoURL" type="text" value={data.photoURL}></input>
+                            <label htmlFor="photo_url">Photo URL: </label>
+                            <input onChange={handleChange} name="photo_url" id="photo_url" type="text" value={data.photo_url}></input>
                         </div>
                     </>
                 }
