@@ -1,25 +1,37 @@
 .Company {
     text-align: left;
     width: 60%;
-    margin: 2rem auto;  
+    margin: 2rem auto;
 }
 
 .Company h3 {
     margin-left: 1rem;
 }
 
+.Company .title {
+    border: 1px solid black;
+    background-color: white;
+    padding-bottom: 1rem;
+}
+
+.Company .jobsHeading {
+    text-align: center;
+    width: 60%;
+    margin: 1rem auto;
+}
+
 .Company .job {
-    padding-left: 2rem;
-    margin-bottom: 2rem;
+    width: 40%;
+    padding-left: 1rem;
+    margin: 0 auto 2rem;
     border: 1px solid black;
     background-color: #fff;
 }
 
 .Company button {
     display: block;
-    margin-left: auto;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    width: 5rem;
+    margin: 0 1rem 1rem auto;
     padding: .2rem;
     background-color: rgb(230, 230, 230);
 }

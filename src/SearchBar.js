@@ -4,7 +4,7 @@ import './SearchBar.css';
 function searchBar({handleChange, handleSubmit, searchTerm, page, toggleSearch}) {    
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='SearchBar' onSubmit={handleSubmit}>
             <input 
                 onChange={handleChange} 
                 value={searchTerm} 
@@ -15,7 +15,7 @@ function searchBar({handleChange, handleSubmit, searchTerm, page, toggleSearch})
                 Search
             </button>
             <button onClick={toggleSearch} type='button'>
-                Show All {page === 'companies' ? "Companies" : "Jobs"}
+                Show All
             </button>
         </form>
     );

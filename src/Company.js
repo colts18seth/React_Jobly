@@ -17,10 +17,14 @@ function Company() {
 
     return (
         <div className="Company">
-            <h3>{companyState.name}</h3>
-            <p>{companyState.description}</p>
+            <div className='title'>
+                <h3>{companyState.name}</h3>
+                <p>{companyState.description}</p>
+            </div>
             {companyState !== "" && 
-            <div>{companyState.jobs.map(job => (
+            <div>
+                <h3 className="jobsHeading">Jobs</h3>
+                {companyState.jobs.map(job => (
                 <div className='job' key={uuid()}>
                     <h4>{job.title}</h4>
                         <p>Salary: {job.salary}</p>
