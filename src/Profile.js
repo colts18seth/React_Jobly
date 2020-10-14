@@ -1,9 +1,12 @@
 import React from 'react';
 
-function Profile() {
+function Profile({currentUser}) {
+    const user = currentUser;
     return (
         <div className="Profile">
-            <h1>Profile</h1>
+            {user && 
+                <h1>{user.first_name} {user.last_name}</h1>
+            }
         </div>
     );
 }

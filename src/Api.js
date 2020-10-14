@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 class Api {
 
@@ -64,6 +65,12 @@ class Api {
     static async signUpUser(data) {
         let res = await this.request('users', data, "post");
         return res;
+    }
+
+    static async getUser(token) {
+        let payload = jwt.decode(token);
+        let res = await this.request(`users/${payload.username}` )
+        return res.user;
     }
 }
 

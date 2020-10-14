@@ -7,7 +7,7 @@ import JobsList from './JobsList';
 import SignIn from './SignIn';
 import Profile from './Profile';
 
-function Routes({login}) {
+function Routes({login, currentUser}) {
     return (
         <div className="Routes">
             <Switch>
@@ -15,7 +15,7 @@ function Routes({login}) {
                     <SignIn login={login} />
                 </Route>
                 <Route exact path='/profile'>
-                    <Profile />
+                    <Profile currentUser={currentUser} />
                 </Route>
                 <Route exact path='/jobs'>
                     <JobsList />
