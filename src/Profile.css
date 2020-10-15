@@ -1,0 +1,10 @@
+.Profile {
+    background-color: white;
+    border: 1px solid black;
+    margin: 2rem auto;
+    width: 30%;
+}
+
+.Profile button {
+    margin: 2rem 0;
+}
