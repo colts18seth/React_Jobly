@@ -3,8 +3,8 @@ import jwt from 'jsonwebtoken';
 
 class Api {
 
-
     static async request(endpoint, paramsOrData = {}, verb = "get") {
+        const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001/";
         paramsOrData._token = (localStorage.getItem("token"));
 
         console.debug("API Call:", endpoint, paramsOrData, verb);
@@ -12,7 +12,7 @@ class Api {
         try {
             return (await axios({
                 method: verb,
-                url: `http://localhost:3001/${endpoint}`,
+                url: `${BASE_URL}${endpoint}`,
                 [verb === "get" ? "params" : "data"]: paramsOrData
             })).data;
             // axios sends query string data via the "params" key,
