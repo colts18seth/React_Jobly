@@ -11,9 +11,6 @@ function Routes({login, currentUser}) {
     return (
         <div className="Routes">
             <Switch>
-                <Route exact path='/login'>
-                    <SignIn login={login} />
-                </Route>
                 <Route exact path='/profile'>
                     <Profile currentUser={currentUser} />
                 </Route>
@@ -24,12 +21,15 @@ function Routes({login, currentUser}) {
                     <CompaniesList />
                 </Route>
                 <Route exact path='/companies/:company'>
-                    <Company />
+                    <Company currentUser={currentUser} />
                 </Route>
                 <Route exact path='/'>
                     <Home />
                 </Route>
-                <Redirect to='/' />
+                <Route exact path='/login'>
+                    <SignIn login={login} />
+                </Route>
+                <Redirect to='/' />                
             </Switch>
         </div>
     );

@@ -9,11 +9,13 @@ function Company() {
     const [companyState, setCompanyState] = useState("");
 
     useEffect(() => {
-        const gotCompany = Api.getCompany(company);
-        gotCompany.then(res => {
-            setCompanyState(res);
-        })
+        getCompany(company);
     }, [company]);
+
+    const getCompany = async (company) => {
+        const res = await Api.getCompany(company);        
+        setCompanyState(res);
+    };
 
     return (
         <div className="Company">
@@ -29,8 +31,6 @@ function Company() {
                     <h4>{job.title}</h4>
                         <p>Salary: {job.salary}</p>
                         <p>Equity: {job.equity}</p>
-
-                        <button>Apply</button>
                 </div>
             ))}
             </div>     

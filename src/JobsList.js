@@ -8,10 +8,11 @@ import './JobsList.css';
 function JobsList() {
     const [jobs, setJobs] = useState();
     const [searchTerm, setSearchTerm] = useState("");
+    const [toggle, setToggle] = useState(false);
     
     useEffect(() => {
         getAllJobs();
-    }, []);
+    }, [toggle]);   
 
     const handleChange = (e) => {
         const {value} = e.target;
@@ -34,6 +35,11 @@ function JobsList() {
         setJobs(search);
     };
 
+    const handleApply = async (id) => {
+        await Api.apply(id);
+        setToggle(!toggle);
+    }
+
     const toggleSearch = async () => {
         getAllJobs();
     };
@@ -45,7 +51,7 @@ function JobsList() {
                 ? <p>Loading...</p>
                 : jobs.length === 0 ? <p>Sorry, no results were found!</p> : jobs.map(job => (
                     <div key={uuid()}>
-                        <JobCard job={job} />
+                        <JobCard handleApply={handleApply} job={job} />
                     </div>
                 ))}
         </div>

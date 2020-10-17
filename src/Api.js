@@ -27,8 +27,8 @@ class Api {
         }
     }
 
-    static async getCompany(handle) {
-        let res = await this.request(`companies/${handle}`);
+    static async getCompany(handle, username) {
+        let res = await this.request(`companies/${handle}`, {username: username});
         return res.company;
     }
 
@@ -42,8 +42,8 @@ class Api {
         return res.companies;
     }
     
-    static async getJob(title) {
-        let res = await this.request(`jobs/${title}`);
+    static async getJob(id) {
+        let res = await this.request(`jobs/${id}`);
         return res.job;
     }
     
@@ -55,6 +55,11 @@ class Api {
     static async searchJobs(searchTerm) {
         let res = await this.request('jobs', {search: searchTerm});
         return res.jobs;
+    }
+
+    static async apply(id) {
+        let res = await this.request(`jobs/${id}/apply`, {}, "post");
+        return res;
     }
 
     static async loginUser(data) {
@@ -70,6 +75,11 @@ class Api {
     static async getUser(token) {
         let payload = jwt.decode(token);
         let res = await this.request(`users/${payload.username}` )
+        return res.user;
+    }
+
+    static async updateUser(username, data){
+        let res = await this.request(`users/${username}`, data, "patch");
         return res.user;
     }
 }

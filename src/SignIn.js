@@ -6,12 +6,12 @@ import './SignIn.css';
 function SignIn({login}) {
     let history = useHistory();
     const INITIAL_STATE = {
-        username: "testuser",
-        password: "secret",
-        first_name: "test",
-        last_name: "user",
-        email: "testuser",
-        photo_url: "http://testuser.com"
+        username: "",
+        password: "",
+        first_name: "",
+        last_name: "",
+        email: "",
+        photo_url: ""
     }
 
     const [data, setData] = useState(INITIAL_STATE);
@@ -40,11 +40,11 @@ function SignIn({login}) {
             login();
             history.push("/companies");
             setError(false);
+            setData(INITIAL_STATE);
         }
         catch {
             setError(true);
         }
-        setData(INITIAL_STATE);
     }
 
     const handleActiveForm = (e) => {

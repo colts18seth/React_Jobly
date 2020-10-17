@@ -48,7 +48,7 @@ class Company {
 
   /** Given a company handle, return data about company. */
 
-  static async findOne(handle) {
+  static async findOne(handle, username) {
     const companyRes = await db.query(
         `SELECT handle, name, num_employees, description, logo_url
             FROM companies
@@ -64,13 +64,14 @@ class Company {
     }
 
     const jobsRes = await db.query(
-        `SELECT id, title, salary, equity
-            FROM jobs 
+        `SELECT id, title, salary, equity, a.state
+            FROM jobs
+                LEFT OUTER JOIN applications AS a on a.job_id = id AND a.username = $2 
             WHERE company_handle = $1`,
-        [handle]);
+        [handle, username]);
 
     company.jobs = jobsRes.rows;
-
+    
     return company;
   }
 

@@ -9,7 +9,6 @@ class Job {
   /** Find all jobs (can filter on terms in data). */
 
   static async findAll(data, username) {
-    console.log(data);
     let baseQuery = `
       SELECT id, title, company_handle, salary, equity, a.state 
       FROM jobs 
@@ -154,6 +153,5 @@ class Job {
           [id, username, state]);
   }
 }
-
 
 module.exports = Job;
