@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "start-fe": "react-scripts start",
-    "start-be": "nodemon backend/server.js",
+    "start-be": "nodemon ../backend/server.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
