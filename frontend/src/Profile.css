@@ -1,0 +1,34 @@
+.Profile {
+    background-color: white;
+    border: 1px solid black;
+    margin: 2rem auto;
+    width: 30%;
+}
+
+.Profile button {
+    width: 30%;
+    margin: 2rem 0;
+}
+
+.Profile img {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 2rem auto 0;
+}
+
+.Profile .password {
+    margin: 2rem auto 0;
+}
+
+.password label {
+    display: block;
+}
+
+.Profile {
+    margin: 2rem auto;
+    width: 325px;
+}
+
+.Profile .email {
+    margin-left: 2.2rem;
+}
