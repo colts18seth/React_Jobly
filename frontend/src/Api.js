@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 class Api {
 
     static async request(endpoint, paramsOrData = {}, verb = "get") {
-        const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001/";
+        const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
         paramsOrData._token = (localStorage.getItem("token"));
 
         console.debug("API Call:", endpoint, paramsOrData, verb);

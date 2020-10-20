@@ -21,6 +21,7 @@
 }
 
 .Company .job {
+    text-align: center;
     width: 40%;
     padding-left: 1rem;
     margin: 0 auto 2rem;
