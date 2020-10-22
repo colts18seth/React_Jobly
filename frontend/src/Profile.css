@@ -2,7 +2,7 @@
     background-color: white;
     border: 1px solid black;
     margin: 2rem auto;
-    width: 30%;
+    width: 400px;
 }
 
 .Profile button {
@@ -22,11 +22,6 @@
 
 .password label {
     display: block;
-}
-
-.Profile {
-    margin: 2rem auto;
-    width: 325px;
 }
 
 .Profile .email {
